@@ -1,4 +1,6 @@
 using EMS_API.Data;
+using EMS_API.Repositories;
+using EMS_API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,9 @@ builder.Services.AddDbContext<AppDBContext>(options =>
 {
     options.UseNpgsql(connectionString);
 });
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 
