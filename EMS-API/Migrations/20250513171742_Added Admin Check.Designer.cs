@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EMS_API.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20250513152535_Neon")]
-    partial class Neon
+    [Migration("20250513171742_Added Admin Check")]
+    partial class AddedAdminCheck
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,9 @@ namespace EMS_API.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsUserAdmin")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()

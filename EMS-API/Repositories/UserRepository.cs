@@ -38,6 +38,7 @@ namespace EMS_API.Repositories
             existingUser.Email = user.Email;
             existingUser.Name = user.Name;
             existingUser.PhoneNumber = user.PhoneNumber;
+            existingUser.IsUserAdmin = user.IsUserAdmin;
 
             _dbContext.Entry(existingUser).State = EntityState.Modified;
             await _dbContext.SaveChangesAsync();
